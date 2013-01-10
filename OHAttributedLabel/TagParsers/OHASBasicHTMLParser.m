@@ -321,7 +321,22 @@ NSDictionary *emotDicts =nil;
                     return nil;
                 }
             }, @"(@[a-zA-Z0-9\\u4e00-\\u9fa5]+)",
-            
+            ^NSAttributedString*(NSAttributedString* str, NSTextCheckingResult* match)
+            {
+                NSRange linkRange = [match rangeAtIndex:1];
+                NSRange textRange = [match rangeAtIndex:1];
+                if ((linkRange.length>0) && (textRange.length>0))
+                {
+                    NSString* link = [str attributedSubstringFromRange:linkRange].string;
+                    NSMutableAttributedString* foundString = [[str attributedSubstringFromRange:textRange] mutableCopy];
+                    link = [link base64EncodedString];
+                    NSURL *url = [NSURL URLWithString:link];
+                    [foundString setLink:url range:NSMakeRange(0,[foundString length])];
+                    return MRC_AUTORELEASE(foundString);
+                } else {
+                    return nil;
+                }
+            }, @"(\\s(视频链接|微刊链接)$)",
             ^NSAttributedString*(NSAttributedString* str, NSTextCheckingResult* match)
             {
                 NSRange linkRange = [match rangeAtIndex:1];
