@@ -44,7 +44,7 @@
 #endif
 
 NSString* kOHLinkAttributeName = @"NSLinkAttributeName"; // Use the same value as OSX, to be compatible in case Apple port this to iOS one day too
-NSString* kOHEmoitAttributeName = @"NSEmoitAttributeName1234567";
+NSString* kOHEmoitAttributeName = @"NSEmoitAttributeName";
 
 /////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - NSAttributedString Additions
@@ -293,6 +293,7 @@ NSString* kOHEmoitAttributeName = @"NSEmoitAttributeName1234567";
 
 -(void)setEmoit:(NSString *)link
 {
+//    NSLog(@"%@-%@",self,link);
     [self removeAttribute:kOHEmoitAttributeName range:NSMakeRange(0,[self length])]; // Work around for Apple leak
     if (link)
     {

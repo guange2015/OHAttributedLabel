@@ -1,5 +1,23 @@
 # About these classes
 
+### 修改
+
+因为主要是为了适应个人项目修改，所以很难并入主版本库了。
+修改如下:
+
+1. 加入表情支持
+
+1. 加入中文链接支持
+
+1.  通过[CocoaPods](https://github.com/CocoaPods/CocoaPods)进行安装
+    
+```pod 'OHAttributedLabel', :git => 'https://github.com/hhuai/OHAttributedLabel.git'```
+
+
+### ScreenShot
+
+![](screenshot.png)
+
 ### OHAttributedLabel
 
 This class allows you to use a `UILabel` with `NSAttributedString`s, in order to **display styled text** with mixed style (mixed fonts, color, size, ...) in a unique label. It is a subclass of `UILabel`, which adds an `attributedText` property. Use this property, instead of the `text` property, to set and get the `NSAttributedString` to display.

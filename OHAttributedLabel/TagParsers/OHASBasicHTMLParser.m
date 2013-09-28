@@ -311,6 +311,20 @@ NSDictionary *emotDicts =nil;
                 NSRange textRange = [match rangeAtIndex:1];
                 if ((linkRange.length>0) && (textRange.length>0))
                 {
+                    NSMutableAttributedString* foundString = [[str attributedSubstringFromRange:textRange] mutableCopy];
+                    [foundString setTextColor:[UIColor blueColor]];
+                    return MRC_AUTORELEASE(foundString);
+                } else {
+                    return nil;
+                }
+            }, @"(#[a-zA-Z0-9\\u4e00-\\u9fa5]+?#)",
+            
+            ^NSAttributedString*(NSAttributedString* str, NSTextCheckingResult* match)
+            {
+                NSRange linkRange = [match rangeAtIndex:1];
+                NSRange textRange = [match rangeAtIndex:1];
+                if ((linkRange.length>0) && (textRange.length>0))
+                {
                     NSString* link = [str attributedSubstringFromRange:linkRange].string;
                     NSMutableAttributedString* foundString = [[str attributedSubstringFromRange:textRange] mutableCopy];
                     link = [link base64EncodedString];

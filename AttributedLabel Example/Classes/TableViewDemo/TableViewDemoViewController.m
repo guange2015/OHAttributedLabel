@@ -35,8 +35,8 @@ static CGFloat const kLabelVMargin = 10;
     if (self) {
         // Custom initialization
         NSMutableArray* plainEntries = [NSMutableArray arrayWithObjects:
-                                        @"哈哈哈[小声] <at>haha</at>themed @中国李sdfsdf appearances was 1983's Thriller, a Michael @Jackson short[小声] film and music [小声]video, #directed# by [抠鼻]John Landis.^^^ ",
-                                   @"Visit http://www.支持中文中是apple.com *now*!",
+                                        @"#111# 哈哈哈[小声] <at>haha</at>themed @中国李sdfsdf appearances was 1983's Thriller, a Michael @Jackson short[小声] film and music [小声]video, #directed# by [抠鼻]John Landis.^^^ ",
+                                   @"Visit #111# http://www.支持中文中是apple.com *now*!",
                                    @"Go to http://www.foodreporter.net to *{red|share your food}*!",
                                    @"Start a search on http://www.google.com right now",
                                    nil];
@@ -55,7 +55,7 @@ static CGFloat const kLabelVMargin = 10;
         {
             NSMutableAttributedString* mas = [OHASBasicHTMLParser attributedStringByProcessingMarkupInString:plainEntry];
             [mas setFont:[UIFont systemFontOfSize: (idx++ < 13) ? 18 : 16]];
-            [mas setTextColor:[randomColors objectAtIndex:(idx%5)]];
+//            [mas setTextColor:[randomColors objectAtIndex:(idx%5)]];
             [mas setTextAlignment:kCTTextAlignmentCenter lineBreakMode:kCTLineBreakByWordWrapping];
             [formattedEntries addObject:mas];
         }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1A086495-677C-4BA2-9D77-DF53C179C0FC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AttributedLabel Example</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>06F3FE6F-DBFE-4D3E-B5BC-8885A926FF54</key>
+		<string>ssh://github.com/hhuai/OHAttributedLabel.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AttributedLabel Example/AttributedLabel Example.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>06F3FE6F-DBFE-4D3E-B5BC-8885A926FF54</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/hhuai/OHAttributedLabel.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>06F3FE6F-DBFE-4D3E-B5BC-8885A926FF54</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>06F3FE6F-DBFE-4D3E-B5BC-8885A926FF54</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OHAttributedLabel</string>
+		</dict>
+	</array>
+</dict>
+</plist>

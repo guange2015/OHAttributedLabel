@@ -65,7 +65,10 @@
               NSAttributedString* repl = block(processedString, result);
               if (repl)
               {
-                  NSRange offsetRange = NSMakeRange(result.range.location - offset, result.range.length);
+                  int start =result.range.location - offset;
+                  
+                  NSRange offsetRange = NSMakeRange(start, result.range.length);
+//                  NSLog(@"1111-%@-%@",NSStringFromRange(offsetRange),repl);
                   [mutAttrString replaceCharactersInRange:offsetRange withAttributedString:repl];
                   offset += result.range.length - repl.length;
               }

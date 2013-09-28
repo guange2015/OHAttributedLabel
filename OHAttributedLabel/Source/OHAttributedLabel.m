@@ -533,25 +533,27 @@ NSDataDetector* sharedReusableDataDetector(NSTextCheckingTypes types)
                  {
                      if (value)
                      {
-                         
-                         //add the image for drawing
-                         NSArray *ary = [value componentsSeparatedByString:@"|"];
-                         if ([ary count] == 3) {
-                             [self.images addObject:
-                              [NSDictionary dictionaryWithObjectsAndKeys:
-                               ary[1], @"width",
-                               ary[2], @"height",
-                               ary[0], @"fileName",
-                               [NSNumber numberWithInt: NSMaxRange(range)-1], @"location",
-                               nil]
-                              ];
+                         for(int i =1; i<=range.length;++i){
+                             //add the image for drawing
+                             NSArray *ary = [value componentsSeparatedByString:@"|"];
+                             if ([ary count] == 3) {
+                                 [self.images addObject:
+                                  [NSDictionary dictionaryWithObjectsAndKeys:
+                                   ary[1], @"width",
+                                   ary[2], @"height",
+                                   ary[0], @"fileName",
+                                   [NSNumber numberWithInt: NSMaxRange(range)-i], @"location",
+                                   nil]
+                                  ];
+                             }
                          }
+                         
                          
                      }
                  }];
                 self.images = [[self.images reverseObjectEnumerator] allObjects];
             }
-                        
+            
             [self recomputeLinksInTextIfNeeded];
             NSAttributedString* attributedStringToDisplay = _attributedTextWithLinks;
             if (self.highlighted && self.highlightedTextColor != nil)
@@ -584,7 +586,7 @@ NSDataDetector* sharedReusableDataDetector(NSTextCheckingTypes types)
                 CGPathAddRect(path, NULL, drawingRect);
                 textFrame = CTFramesetterCreateFrame(framesetter,CFRangeMake(0,0), path, NULL);
                 if ([self.images count]) {
-//                    [self attachImagesWithFrame:textFrame withImages:self.images withContext:ctx];
+                    [self attachImagesWithFrame:textFrame withImages:self.images withContext:ctx];
                 }
                 CGPathRelease(path);
                 CFRelease(framesetter);
@@ -636,7 +638,7 @@ NSDataDetector* sharedReusableDataDetector(NSTextCheckingTypes types)
             CTRunRef run = (CTRunRef)runObj;
             CFRange runRange = CTRunGetStringRange(run);
             
-            if ( runRange.location <= imgLocation && runRange.location+runRange.length > imgLocation ) { //7
+            if ( (runRange.location <= imgLocation && runRange.location+runRange.length > imgLocation)) { //7
 	            CGRect runBounds;
 	            CGFloat ascent;//height above the baseline
 	            CGFloat descent;//height below the baseline
@@ -667,6 +669,20 @@ NSDataDetector* sharedReusableDataDetector(NSTextCheckingTypes types)
         lineIndex++;
     }
     
+//    if ([lines count]==0 && [imags count]>0) {
+//        int x = 0;
+//        for (NSDictionary *d in imags) {
+//            UIImage *img = [UIImage imageNamed: [d objectForKey:@"fileName"] ];
+//            int width = [[d objectForKey:@"width"] intValue];
+//            int height = [[d objectForKey:@"height"] intValue];
+//            
+//            [imgs addObject: //11
+//             [NSArray arrayWithObjects:img, NSStringFromCGRect(CGRectMake(x, 0, width, height)) , nil]
+//             ];
+//            x += width;
+//        }
+//        
+//    }
     
     for (NSArray* imageData in imgs)
     {
